@@ -40,8 +40,6 @@ The "Snippets" plugin is a powerful tool for WordPress users who need a simple a
 
 To use the "Snippets" plugin, follow these steps:
 
-### Step-by-Step Usage Guide
-
 #### 1. Install the Plugin
 
 1. **Installation**:
