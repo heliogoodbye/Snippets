@@ -1,58 +1,86 @@
 # Snippets
-Snippets is a custom WordPress plugin designed to simplify the management and insertion of reusable content blocks called "snippets" into various posts and pages on a WordPress site.
+Snippets is a versatile WordPress plugin designed to help you manage and insert reusable content blocks, called snippets, into your website. This plugin allows you to create a custom post type for snippets and easily insert them into posts and pages using shortcodes. Additionally, you can display a specific snippet or randomly select one from a list of snippet IDs for dynamic content display.
 
-### Key Features
+#### Key Features
 
 1. **Custom Post Type for Snippets**:
-   - The plugin creates a custom post type named "snippets".
-   - This post type allows users to create, edit, and manage snippets as separate entities within the WordPress admin interface.
-   - Snippets support titles, content, featured images, and revisions, similar to regular posts.
+   - Creates a custom post type called "snippets".
+   - Allows you to create, edit, and manage snippets within the WordPress admin interface.
+   - Supports titles, content, featured images, and revisions, similar to regular posts.
 
 2. **Shortcode for Easy Insertion**:
-   - The plugin provides a shortcode `[snippet id=""]` to insert snippets into any post or page.
-   - Users can specify the snippet they want to insert by providing the ID of the snippet.
-   - The shortcode retrieves and displays the content of the specified snippet, enabling dynamic and reusable content.
+   - Use the shortcode `[snippet id="SNIPPET_ID"]` to insert a specific snippet into a post or page.
+   - Use the shortcode `[snippet ids="ID1,ID2,ID3"]` to randomly display one snippet from a list of IDs.
 
 3. **User-Friendly Interface**:
-   - Snippets are managed via a dedicated section in the WordPress admin menu.
-   - The interface is intuitive, making it easy for users to create and organize their snippets.
+   - Dedicated section in the WordPress admin menu for managing snippets.
+   - Intuitive interface for creating and organizing snippets.
 
 4. **Flexible Content Management**:
-   - Snippets can be used in various contexts, such as embedding commonly used text blocks, code snippets, disclaimers, or promotional content.
-   - This functionality helps maintain consistency and saves time when updating recurring content across multiple pages.
+   - Use snippets for commonly used text blocks, code snippets, disclaimers, promotional content, etc.
+   - Maintain consistency and save time by updating recurring content in one place.
 
 5. **Taxonomy Support**:
-   - Snippets can be categorized and tagged using WordPress's built-in taxonomy features, enhancing organization and searchability.
+   - Categorize and tag snippets using WordPress's built-in taxonomy features for better organization and searchability.
 
-### Example Usage
+#### Installation and Usage
 
-If you have a snippet with the ID `123` that contains a frequently used disclaimer, you can insert it into any post or page using the shortcode:
+1. **Installation**:
+   - Upload the `snippets` directory to the `wp-content/plugins` directory of your WordPress installation.
+   - Activate the plugin from the Plugins page in the WordPress admin dashboard.
 
-```[snippet id="123"]```
+2. **Creating Snippets**:
+   - Navigate to the "Snippets" section in the WordPress admin menu.
+   - Click "Add New" to create a new snippet.
+   - Enter the title and content for the snippet and publish it.
 
-The content of the snippet will be displayed wherever the shortcode is placed, ensuring consistency and ease of updates.
+3. **Inserting Snippets**:
+   - To insert a specific snippet into a post or page, use the shortcode `[snippet id="SNIPPET_ID"]`, replacing `SNIPPET_ID` with the actual ID of the snippet.
+   - To randomly display one snippet from a list of IDs, use the shortcode `[snippet ids="ID1,ID2,ID3"]`, replacing `ID1, ID2, ID3` with the actual IDs of the snippets.
 
-The "Snippets" plugin is a powerful tool for WordPress users who need a simple and efficient way to manage and reuse content across their website. By leveraging custom post types and shortcodes, it provides a flexible solution for maintaining consistent and up-to-date content.
+#### Examples
+
+1. **Single Snippet**:
+   ```plaintext
+   [snippet id="123"]
+   ```
+
+2. **Random Snippet**:
+   ```plaintext
+   [snippet ids="123, 456, 789"]
+   ```
+
+In the second example, one of the snippets with IDs `123`, `456`, or `789` will be randomly selected and displayed.
+
+#### License
+
+The "Snippets" plugin is open-source software licensed under the GNU General Public License v3.0. This ensures that users have the freedom to use, modify, and distribute the plugin in accordance with the terms of the GPL v3.0.
+
+#### Conclusion
+
+The "Snippets" plugin is a powerful tool for WordPress users who need a simple and efficient way to manage and reuse content across their website. By leveraging custom post types and shortcodes, it provides a flexible solution for maintaining consistent and up-to-date content, while the ability to display random snippets adds an extra layer of dynamic content management.
 
 ---
 
 ## How to use Snippets
 
-To use the "Snippets" plugin, follow these steps:
+To use the "Snippets" plugin effectively, follow these detailed steps:
 
-#### 1. Install the Plugin
+### Installation and Activation
 
-1. **Installation**:
-    - Download the plugin files.
-    - Upload the plugin folder to the `/wp-content/plugins/` directory of your WordPress installation.
-    - Activate the plugin through the ‘Plugins’ menu in WordPress.
+1. **Download the Plugin**:
+   - Ensure you have the `snippets.php` file with the plugin code.
 
-2. **Activate the Plugin**:
+2. **Upload the Plugin**:
+   - Create a directory named `snippets` in your `wp-content/plugins` directory.
+   - Place the `snippets.php` file inside the `snippets` directory.
+
+3. **Activate the Plugin**:
    - Log in to your WordPress admin dashboard.
    - Navigate to `Plugins` > `Installed Plugins`.
    - Find the "Snippets" plugin in the list and click `Activate`.
 
-#### 2. Create Snippets
+### Creating Snippets
 
 1. **Access Snippets**:
    - In the WordPress admin menu, you will see a new menu item called `Snippets`. Click on it.
@@ -60,10 +88,10 @@ To use the "Snippets" plugin, follow these steps:
 2. **Add New Snippet**:
    - Click `Add New` to create a new snippet.
    - Enter a title and the content for your snippet.
-   - You can use the standard WordPress editor to format the snippet content.
+   - Use the standard WordPress editor to format the snippet content.
    - Click `Publish` to save the snippet.
 
-#### 3. Insert Snippets into Posts or Pages
+### Inserting Snippets into Posts or Pages
 
 1. **Get the Snippet ID**:
    - Each snippet you create will have a unique ID. You can find the ID in the URL when editing a snippet or in the snippets list.
@@ -72,29 +100,48 @@ To use the "Snippets" plugin, follow these steps:
    - Edit the post or page where you want to insert the snippet.
    - Insert the shortcode `[snippet id="SNIPPET_ID"]` where you want the snippet to appear, replacing `SNIPPET_ID` with the actual ID of your snippet.
 
-   Example:
+   Example for a single snippet:
    ```plaintext
    [snippet id="123"]
    ```
-   
-3. **Publish or Update the Post/Page**:
+
+3. **Random Snippet from Multiple IDs**:
+   - To randomly display one snippet from a list of IDs, use the shortcode `[snippet ids="ID1,ID2,ID3"]`, replacing `ID1, ID2, ID3` with the actual IDs of the snippets you want to randomly display.
+
+   Example for random snippet selection:
+   ```plaintext
+   [snippet ids="123, 456, 789"]
+   ```
+
+4. **Publish or Update the Post/Page**:
    - Once you have inserted the shortcode, save the changes by clicking `Publish` or `Update`.
 
-### Example
+### Example Usage
 
-1. **Create a Snippet**:
-   - Title: "Disclaimer"
-   - Content: "This is a standard disclaimer text used across multiple pages."
+#### Single Snippet
 
-2. **Insert the Snippet**:
-   - Assume the ID of this snippet is `5`.
-   - In the post or page editor, place the shortcode `[snippet id="5"]` where you want the disclaimer to appear.
+If you have a snippet with the ID `123` that contains a frequently used disclaimer, you can insert it into any post or page using the shortcode:
+
+```plaintext
+[snippet id="123"]
+```
+
+#### Random Snippet
+
+To display a random snippet from the list of IDs `123`, `456`, and `789`, use the shortcode:
+
+```plaintext
+[snippet ids="123, 456, 789"]
+```
+
+In this example, one of the snippets with IDs `123`, `456`, or `789` will be randomly selected and displayed at the location of the shortcode.
 
 ### Benefits of Using the Plugin
 
 - **Reusable Content**: Easily manage and reuse content across multiple posts and pages.
 - **Consistency**: Maintain consistent information throughout your site by updating the snippet once and reflecting the changes everywhere it's used.
 - **Efficiency**: Save time by creating snippets once and using them in multiple locations without duplicating effort.
+- **Dynamic Content**: Display random snippets from a list of IDs for more dynamic content presentation.
 
 ### Troubleshooting
 
@@ -106,7 +153,7 @@ To use the "Snippets" plugin, follow these steps:
   - Make sure the plugin is activated.
   - Verify that the shortcode syntax is correct.
 
-By following these steps, you can efficiently manage and insert reusable content blocks on your WordPress site using the "Snippets" plugin.
+By following these steps, you can efficiently manage and insert reusable content blocks on your WordPress site using the "Snippets" plugin, including the ability to display random snippets from a list of IDs.
 
 ---
 
