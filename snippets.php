@@ -2,7 +2,7 @@
 /*
 Plugin Name: Snippets
 Description: Snippets is a custom WordPress plugin designed to simplify the management and insertion of reusable content blocks called "snippets" into various posts and pages on a WordPress site.
-Version: 1.1
+Version: 1.2
 Author: Strangefrequency LLC
 Author URI: https://strangefrequency.com/
 License: GPL v3
@@ -73,14 +73,32 @@ function snippet_shortcode($atts) {
         array(
             'id' => '',
             'ids' => '',
+            'category' => '',
         ), $atts, 'snippet'
     );
 
     $snippet_id = $atts['id'];
     $snippet_ids = $atts['ids'];
+    $snippet_category = $atts['category'];
 
-    if (!$snippet_id && !$snippet_ids) {
+    if (!$snippet_id && !$snippet_ids && !$snippet_category) {
         return '';
+    }
+
+    // If a category is provided, get a random snippet from that category
+    if ($snippet_category) {
+        $args = array(
+            'post_type' => 'snippet',
+            'posts_per_page' => -1,
+            'category_name' => $snippet_category,
+        );
+        $snippets = get_posts($args);
+        if ($snippets) {
+            $snippet_post = $snippets[array_rand($snippets)];
+            return apply_filters('the_content', $snippet_post->post_content);
+        } else {
+            return '';
+        }
     }
 
     // If multiple IDs are provided, select one at random
